@@ -2,13 +2,13 @@ import pandas as pd
 import os 
 
 # create new directory to store data
-output_dir = "Preprocessed Data"
+output_dir = "Preprocessing/Preprocessed Data"
 os.makedirs(output_dir, exist_ok=True)
 
 # loop through seasons from 2003-04 to 2023-24
 for year in range(2003, 2014): # modify this to change what files to filter
     season = f"{year}-{str(year+1)[-2:]}"  # formats as "2003-04", "2004-05", etc.
-    input_file = f"Data/{season}.xlsx"  # construct file path
+    input_file = f"Preprocessing/Data/{season}.xlsx"  # construct file path
     output_file = f"{output_dir}/{season}_filtered.xlsx"  # output file with "_filtered" suffix
 
     print(f"Processing {season}...")
