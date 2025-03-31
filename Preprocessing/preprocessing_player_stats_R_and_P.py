@@ -2,7 +2,7 @@ import pandas as pd
 import os 
 
 # create new directory to store data
-output_dir = "Preprocessing\\Preprocessed Data"
+output_dir = "Preprocessing\\Preprocessed Data\\Player Stats Regular and Playoff"
 os.makedirs(output_dir, exist_ok=True)
 
 # loop through seasons from 2003-04 to 2023-24
