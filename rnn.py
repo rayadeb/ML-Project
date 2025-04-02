@@ -1,109 +1,186 @@
+import glob
 import torch
 import torch.nn as nn
-import torch.optim as optim
+import torchvision
+import torchvision.transforms as transforms
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from torch.utils.data import Dataset, DataLoader
 
-def load_data(excel_file, feature_sheet="Regular", target_sheet="Playoff"):
-    df_features = pd.read_excel(excel_file, sheet_name=feature_sheet)
-    df_targets = pd.read_excel(excel_file, sheet_name=target_sheet)
-    features = df_features[["PTS", "TRB", "AST"]].values
-    targets = df_targets[["PTS", "TRB", "AST"]].values
-    # print(features)
-    return features, targets
 
-class PlayerDataset(Dataset):
-    def __init__(self, features, targets):
-        self.features = torch.tensor(features, dtype=torch.float32)
-        self.targets = torch.tensor(targets, dtype=torch.float32)
+# device config
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+# Hyper parameters
+input_size = 12 #MP, FG%, 3P%, eFG%, FT%, AST, STL, BLK, TOV, PF, PTS
+hidden_size = 64 #64 to 128
+num_classes = 0 #will be number of teams
+epochs = 2 #may set to higher value
+batch_size = 100
+learning_rate = 0.001
+
+TEAM_NAME_MAP = {
+    'ATL': 'Atlanta Hawks', 'BOS': 'Boston Celtics', 'BRK': 'Brooklyn Nets',
+    'BKN': 'Brooklyn Nets', 'CHA': 'Charlotte Bobcats', 'CHO': 'Charlotte Hornets', 'CHI': 'Chicago Bulls',
+    'CLE': 'Cleveland Cavaliers', 'DAL': 'Dallas Mavericks', 'DEN': 'Denver Nuggets',
+    'DET': 'Detroit Pistons', 'GSW': 'Golden State Warriors', 'HOU': 'Houston Rockets',
+    'IND': 'Indiana Pacers', 'LAC': 'Los Angeles Clippers', 'LAL': 'Los Angeles Lakers',
+    'MEM': 'Memphis Grizzlies', 'MIA': 'Miami Heat', 'MIL': 'Milwaukee Bucks',
+    'MIN': 'Minnesota Timberwolves', 'NOP': 'New Orleans Pelicans', 'NOH': 'New Orleans Hornets', 'NYK': 'New York Knicks',
+    'NJN': 'New Jersey Nets',
+    'OKC': 'Oklahoma City Thunder', 'ORL': 'Orlando Magic', 'PHI': 'Philadelphia 76ers',
+    'PHX': 'Phoenix Suns', 'PHO': 'Phoenix Suns', 'POR': 'Portland Trail Blazers', 'SAC': 'Sacramento Kings',
+    'SAS': 'San Antonio Spurs', 'SEA': 'Seattle Supersonics', 'TOR': 'Toronto Raptors', 'UTA': 'Utah Jazz',
+    'WAS': 'Washington Wizards',
+    # full name mappings
+    'Detroit Pistons': 'Detroit Pistons',
+    'Indiana Pacers': 'Indiana Pacers',
+    'San Antonio Spurs': 'San Antonio Spurs',
+    'New Jersey Nets': 'New Jersey Nets',
+    'Dallas Mavericks': 'Dallas Mavericks'
+}
+
+#changed names:
+# Charlotte Bobcats/Hornets
+# New Orleans Pelicans/Hornets
+
+# CLEANING PLAYER AND PLAYOFF DATA
+
+def load_player_data(): #as supplied by raya
+    # load all regular season player stats from Excel files
+    player_files = glob.glob('Preprocessing/Preprocessed Data/Player Stats Regular and Playoff/*_filtered.xlsx')
+    dfs = []
     
-    def __len__(self):
-        return len(self.features)
+    for file in player_files:
+        df = pd.read_excel(file)
+        season = file.split('\\')[-1].split('_')[0]  # Extract season from filename
+        df['Team'] = df['Team'].map(TEAM_NAME_MAP).fillna(df['Team'])
+        df['Season'] = season
+
+        #getting the columns we actually need
+        df = df[['Player', 'Team', 'Season', "MP", "FG%", "3P%", "eFG%", "FT%", "TRB", "AST", "STL", "BLK", "TOV", "PF", "PTS"]].copy()
+
+        #filling in nan
+        for col in ['FG%', '3P%', 'eFG%', 'FT%']:
+            df[col] = df[col].fillna(0)
+        #print(df.columns[df.isna().any()].tolist()) #['FG%', '3P%', 'eFG%', 'FT%']
+
+        dfs.append(df)
+        
     
-    def __getitem__(self, idx):
-        return self.features[idx], self.targets[idx]
+    return pd.concat(dfs, ignore_index=True)
 
-class RNN(nn.Module):
-    def __init__(self, input_size, hidden_size=64, num_layers=2, output_size=3):
-        super(RNN, self).__init__()
-        self.rnn1 = nn.RNN(input_size, hidden_size, num_layers=num_layers, batch_first=True)
-        self.fc = nn.Linear(hidden_size, output_size)
+def load_playoff_data():
+
+    team_files = glob.glob('Preprocessing/Preprocessed Data/Actual Playoff Team Stats/*__playoff_actual_team_stats.xlsx')
+    dfs = []
+
+    for file in team_files:
+        if '~$' in file:
+            continue
+        df = pd.read_excel(file)
+        season = file.split('\\')[-1].split('__')[0]
+        df = df.rename(columns={'Tm': 'Team', 'Rk': 'Team Rank'})
+        df['Season'] = season
+
+        df = df[['Team Rank', 'Team', 'Season']].copy()
+
+        dfs.append(df)
+
+    return pd.concat(dfs, ignore_index=True)
+
+player_data = load_player_data()
+playoff_data = load_playoff_data()
+
+# MERGING PLAYER AND PLAYOFF DATA
+
+def merge_data(player_data, playoff_data):
+
+    player_df = player_data
+    player_df['Team Rank'] = None
+    dataframes = []
+
+    for season in player_data.Season.unique():
+        season_playoff_df = playoff_data[playoff_data['Season'] == season]
+        season_player_df = player_df[player_df['Season'] == season]
+        
+        for row in season_player_df.itertuples():
+            team = row.Team
+            season_player_df.at[row.Index, 'Team Rank'] = season_playoff_df[season_playoff_df['Team'] == team].iloc[0]['Team Rank']
+            
+        dataframes.append(season_player_df)
     
-    def forward(self, x):
-        x, _ = self.rnn1(x)
-        x = self.fc(x[:, -1, :]) 
-        return x
+    return pd.concat(dataframes)
 
-excel_file = r"ML-Project\Preprocessing\Preprocessed Data\2003-04_filtered.xlsx"
-features, targets = load_data(excel_file)
+    
 
-scaler = StandardScaler()
-features = scaler.fit_transform(features)
+merged_data = merge_data(player_data, playoff_data)
+print(merged_data)
 
-X_train, X_temp, y_train, y_temp = train_test_split(features, targets, test_size=0.2, random_state=42)
+train_data = player_data
+test_data = player_data
+train = torch.tensor(train_data[["MP", "FG%", "3P%", "eFG%", "FT%", "TRB", "AST", "STL", "BLK", "TOV", "PF", "PTS"]].values) #features
+test = torch.tensor(test_data[["PTS", "TRB", "AST"]].values)
+
+#splitting into 80% training, 10% validation, 10% test
+X_train, X_temp, y_train, y_temp = train_test_split(train, test, test_size=0.2, random_state=42)
 X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
 
-train_dataset = PlayerDataset(X_train, y_train)
-val_dataset = PlayerDataset(X_val, y_val)
-test_dataset = PlayerDataset(X_test, y_test)
+class Dataset(torch.utils.data.Dataset):
+    def __init__(self, train, test):
+        self.train = train
+        self.test = test
+    
+    def __len__(self): #to enable len method
+        return len(self.train)
 
-train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
-val_loader = DataLoader(val_dataset, batch_size=32)
-test_loader = DataLoader(test_dataset, batch_size=32)
+train_ds = Dataset(X_train, y_train)
+test_ds = Dataset(X_test, y_test)
+valid_ds = Dataset(X_val, y_val)
 
-input_size = X_train.shape[1]
-hidden_size = 64
-output_size = 3
+train_loader = torch.utils.data.DataLoader(
+    dataset=train_ds,
+    batch_size=batch_size,
+    shuffle=True
+)
+test_loader = torch.utils.data.DataLoader(
+    dataset=test_ds,
+    batch_size=batch_size
+)
+valid_loader = torch.utils.data.DataLoader(
+    dataset=valid_ds,
+    batch_size = batch_size
+)
+
+examples = iter(X_train)
+samples = next(examples)
+
+#making the model
 num_layers = 2
 
-# Initialize model, loss function, and optimizer
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = RNN(input_size, hidden_size, num_layers, output_size).to(device)
+class FNN(nn.Module):
+    def __init__(self, input_size, hidden_size, num_classes):
+        super(FNN, self).__init__()
+        self.l1 = nn.Linear(input_size, hidden_size) #input
+        self.relu = nn.ReLU()
+        self.l2 = nn.Linear(hidden_size, hidden_size) #hidden
+        self.l3 = nn.Linear(hidden_size, num_classes)
+    
+    def forward(self, x):
+        out = self.l1(x)
+        out = self.relu(out)
+        for i in range(num_layers):
+            out = self.l2(out)
+            out = self.relu(out)
+        out = self.l3(out)
+
+model = FNN(input_size, hidden_size, num_classes)
+
+#loss and optimizer
+
+#uses MSE and Adam
 criterion = nn.MSELoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-# Training loop
-epochs = 20
+#FNN actually training
 for epoch in range(epochs):
-    model.train()
-    running_loss = 0.0
-    for inputs, targets in train_loader:
-        inputs, targets = inputs.to(device), targets.to(device)
-        inputs = inputs.unsqueeze(1)  # Add sequence dimension
-        
-        optimizer.zero_grad()
-        outputs = model(inputs)
-        loss = criterion(outputs, targets)
-        loss.backward()
-        optimizer.step()
-        running_loss += loss.item()
-    
-    # Validation
-    model.eval()
-    val_loss = 0.0
-    with torch.no_grad():
-        for inputs, targets in val_loader:
-            inputs, targets = inputs.to(device), targets.to(device)
-            inputs = inputs.unsqueeze(1)
-            outputs = model(inputs)
-            loss = criterion(outputs, targets)
-            val_loss += loss.item()
-    
-    print(f"Epoch {epoch+1}/{epochs}, Train Loss: {running_loss/len(train_loader):.4f}, Validation Loss: {val_loss/len(val_loader):.4f}")
-
-# Testing
-def evaluate_model(model, test_loader):
-    model.eval()
-    test_loss = 0.0
-    with torch.no_grad():
-        for inputs, targets in test_loader:
-            inputs, targets = inputs.to(device), targets.to(device)
-            inputs = inputs.unsqueeze(1)
-            outputs = model(inputs)
-            loss = criterion(outputs, targets)
-            test_loss += loss.item()
-    print(f"Test Loss: {test_loss/len(test_loader):.4f}")
-
-evaluate_model(model, test_loader)
+    pass
