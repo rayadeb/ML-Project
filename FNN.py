@@ -3,7 +3,9 @@ import torch
 import torch.nn as nn
 import torchvision
 import torchvision.transforms as transforms
+from torch.utils.data import DataLoader, TensorDataset
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split
 
 
@@ -14,8 +16,8 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 input_size = 12 #MP, FG%, 3P%, eFG%, FT%, AST, STL, BLK, TOV, PF, PTS
 hidden_size = 64 #64 to 128
 num_classes = 0 #will be number of teams
-epochs = 2 #may set to higher value
-batch_size = 100
+epochs = 10 #may set to higher value
+batch = 100
 learning_rate = 0.001
 
 TEAM_NAME_MAP = {
@@ -91,7 +93,7 @@ def load_playoff_data():
 player_data = load_player_data()
 playoff_data = load_playoff_data()
 
-# MERGING PLAYER AND PLAYOFF DATA
+# MERGING PLAYER AND PLAYOFF DATA AND PREPROCESSING
 
 def merge_data(player_data, playoff_data):
 
@@ -109,50 +111,44 @@ def merge_data(player_data, playoff_data):
             
         dataframes.append(season_player_df)
     
-    return pd.concat(dataframes)
+    merged = pd.concat(dataframes)
 
+    team_names = merged['Team'].unique().tolist()
+    le = LabelEncoder()
+    le.fit(team_names)
+    #we are really only concerned with the team and team rank, so we convert those to floats mapping to a unique int
+    merged['Team'] = le.transform(merged.Team.values)
     
+    merged['Team Rank'] = merged[['Team Rank']].astype(str).astype(float)
+    return merged
 
 merged_data = merge_data(player_data, playoff_data)
-print(merged_data)
 
-train_data = player_data
-test_data = player_data
-train = torch.tensor(train_data[["MP", "FG%", "3P%", "eFG%", "FT%", "TRB", "AST", "STL", "BLK", "TOV", "PF", "PTS"]].values) #features
-test = torch.tensor(test_data[["PTS", "TRB", "AST"]].values)
+train_data = merged_data
+test_data = merged_data
+train = train_data[["MP", "FG%", "3P%", "eFG%", "FT%", "TRB", "AST", "STL", "BLK", "TOV", "PF", "PTS"]].values
+test = test_data[["Team Rank"]].values
+
+
 
 #splitting into 80% training, 10% validation, 10% test
 X_train, X_temp, y_train, y_temp = train_test_split(train, test, test_size=0.2, random_state=42)
 X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
 
-class Dataset(torch.utils.data.Dataset):
-    def __init__(self, train, test):
-        self.train = train
-        self.test = test
-    
-    def __len__(self): #to enable len method
-        return len(self.train)
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+X_val = scaler.transform(X_val)
 
-train_ds = Dataset(X_train, y_train)
-test_ds = Dataset(X_test, y_test)
-valid_ds = Dataset(X_val, y_val)
+X_train = torch.tensor(X_train, dtype=torch.float32)
+X_test = torch.tensor(X_test, dtype=torch.float32)
+X_val = torch.tensor(X_val, dtype=torch.float32)
+y_train = torch.tensor(y_train, dtype=torch.float32)
+y_test = torch.tensor(y_test, dtype=torch.float32)
+y_val = torch.tensor(y_val, dtype=torch.float32)
 
-train_loader = torch.utils.data.DataLoader(
-    dataset=train_ds,
-    batch_size=batch_size,
-    shuffle=True
-)
-test_loader = torch.utils.data.DataLoader(
-    dataset=test_ds,
-    batch_size=batch_size
-)
-valid_loader = torch.utils.data.DataLoader(
-    dataset=valid_ds,
-    batch_size = batch_size
-)
-
-examples = iter(X_train)
-samples = next(examples)
+train_dataset = TensorDataset(X_train, y_train)
+train_loader = DataLoader(train_dataset, batch_size=batch, shuffle=True)
 
 #making the model
 num_layers = 2
@@ -172,6 +168,7 @@ class FNN(nn.Module):
             out = self.l2(out)
             out = self.relu(out)
         out = self.l3(out)
+        return out
 
 model = FNN(input_size, hidden_size, num_classes)
 
@@ -183,4 +180,28 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 #FNN actually training
 for epoch in range(epochs):
-    pass
+    model.train()
+    running_loss = 0.0
+    for i, (X_batch, y_batch) in enumerate(train_loader):
+        print(X_batch, y_batch)
+        optimizer.zero_grad()
+        outputs = model(X_batch)
+        loss = criterion(outputs, y_batch)
+        loss.backward()
+        optimizer.step()
+
+        running_loss += loss.item() * X_batch.size(0)
+
+        if (i + 1) % 10 == 0:
+            print(f'Epoch {epoch+1}/{epochs}, batch {i}/{len(train_loader)}: loss: {loss.item():.4f}')
+
+    average_loss = loss / len(train_loader.dataset)
+    if (epoch+1) % 1 == 0:
+        print(f"Epoch {epoch+1}/{epochs} avg loss: {average_loss:.4f}")
+
+#FNN evaluation
+model.eval()
+with torch.no_grad():
+    test_preds = model(X_test)
+    test_loss = criterion(test_preds, y_test)
+    print(f'\nLoss: {test_loss.item():.4f}')
