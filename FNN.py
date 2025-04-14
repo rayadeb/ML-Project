@@ -181,8 +181,6 @@ class FNN(nn.Module):
         out = self.l3(out)
         return out
 
-epochs = 20 #may set to higher value
-
 #partitioning df by season
 seasons = player_data.Season.unique()
 print(seasons)
@@ -197,38 +195,41 @@ model = FNN(input_size, hidden_size, 1)
 criterion = nn.MSELoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-def train(season_dataset, season):
+# NEWLY ADDED OUTPUT SECTION
+all_results = []
 
+for season in seasons:
+    season_dataset = seasons_dict[season]
     #processing season data
-    train = season_dataset[["MP", "FG%", "3P%", "eFG%", "FT%", "TRB", "AST", "STL", "BLK", "TOV", "PF", "PTS"]].values
-    test = season_dataset[["Team Rank"]].values
+    X = season_dataset[["MP", "FG%", "3P%", "eFG%", "FT%", "TRB", "AST", "STL", "BLK", "TOV", "PF", "PTS"]].values
+    y = season_dataset[["Team Rank"]].values
 
     #standard scaler
-    train_scaler = StandardScaler()
-    original_shape = train.shape
-    train_reshaped = train.reshape(-1, original_shape[-1])
-    train_reshaped = np.nan_to_num(train_reshaped, nan=0)
-    train = train_scaler.fit_transform(train).reshape(original_shape)
+    scaler = StandardScaler()
+    #original_shape = train.shape
+    #train_reshaped = train.reshape(-1, original_shape[-1])
+    #train_reshaped = np.nan_to_num(train_reshaped, nan=0)
+    #train = train_scaler.fit_transform(train).reshape(original_shape)
         
     #splitting into 80% training, 10% validation, 10% test
-    X_train, X_temp, y_train, y_temp = train_test_split(train, test, test_size=0.2, random_state=42)
+    X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.2, random_state=42)
     X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
 
     X_train = torch.tensor(X_train, dtype=torch.float32)
     X_test = torch.tensor(X_test, dtype=torch.float32)
-    X_val = torch.tensor(X_val, dtype=torch.float32)
+    #X_val = torch.tensor(X_val, dtype=torch.float32)
     y_train = torch.tensor(y_train, dtype=torch.float32)
     y_test = torch.tensor(y_test, dtype=torch.float32)
-    y_val = torch.tensor(y_val, dtype=torch.float32)
+    #y_val = torch.tensor(y_val, dtype=torch.float32)
         
     train_dataset = TensorDataset(X_train, y_train)
     train_loader = DataLoader(train_dataset, batch_size=batch, shuffle=True)
 
-    num_teams = season_dataset['Team'].nunique()
-    print(f'{num_teams} teams in season dataset')
+    #num_teams = season_dataset['Team'].nunique()
+    #print(f'{num_teams} teams in season dataset')
 
     #FNN actually training
-    for epoch in range(epochs):
+    for epoch in range(50):
         model.train()
         running_loss = 0.0
         for X_batch, y_batch in train_loader:
@@ -238,7 +239,7 @@ def train(season_dataset, season):
             loss.backward()
             optimizer.step()
 
-            running_loss += loss.item() * X_batch.size(0)
+            #running_loss += loss.item() * X_batch.size(0)
 
             #if (i + 1) % 2 == 0:
             #    print(f'Season {season} Epoch {epoch+1}/{epochs}, batch {i}/{len(train_loader)}: loss: {loss.item():.4f}')
@@ -249,19 +250,26 @@ def train(season_dataset, season):
     
     #FNN evaluation and predicting using aggregated data
     model.eval()
-    with torch.no_grad():
+    '''with torch.no_grad():
         #calculating loss
         test_preds = model(X_test)
         test_loss = criterion(test_preds, y_test)
-
-        season_playoffs = playoff_data[playoff_data['Season'] == season]
-        season_indices = season_playoffs.index.tolist()
-        season_rankings = season_playoffs['Team Rank']
-        columns = [
-            'MP_sum', 'FG%_wt', '3P%_wt', 'eFG%_wt', 
+    '''
+    season_playoffs = playoff_data[playoff_data['Season'] == season]
+    #    season_indices = season_playoffs.index.tolist()
+    #    season_rankings = season_playoffs['Team Rank']
+    columns = [
+        'MP_sum', 'FG%_wt', '3P%_wt', 'eFG%_wt', 
             'FT%_wt', 'TRB_sum', 'AST_sum', 'STL_sum', 
             'BLK_sum', 'TOV_sum', 'PF_sum', 'PTS_sum'
-        ]
+            ]
+    X_full = torch.tensor(season_playoffs[columns].values, dtype=torch.float32)
+    full_predictions = model(X_full).detach().numpy().flatten()
+
+    full_indices = season_playoffs.index.tolist()
+    actual_ranks = np.argsort(np.argsort(season_playoffs['Team Rank'].values)) + 1
+    predicted_ranks = np.argsort(np.argsort(full_predictions)) + 1
+    '''
         season_stats = season_playoffs[columns]
         season_stats = torch.tensor(season_stats.values, dtype=torch.float32)
         
@@ -282,3 +290,27 @@ overall_loss = []
 for season in seasons:
     overall_loss.append(train(seasons_dict[season], season))
 print(f'Overall average loss: {np.mean(overall_loss):.4f}')
+'''
+ # NEW: Output generation
+    season_results = pd.DataFrame({
+        'Season': season,
+        'Team': season_playoffs['Team'].tolist(),
+        'Actual_Rank': actual_ranks,
+        'Predicted_Rank': predicted_ranks
+    }).sort_values('Predicted_Rank')
+
+    print(f"\n=== Season {season} Rankings ===")
+    print(season_results[['Predicted_Rank', 'Team', 'Actual_Rank']].rename(columns={'Predicted_Rank': 'Rank'}).to_string(index=False))
+
+    all_results.append(season_results)
+
+if not all_results:
+    raise ValueError("No valid seasons with sufficient data were processed")
+
+import os
+output_dir = "Results"
+# NEW: Save all results to CSV
+os.makedirs(output_dir, exist_ok=True)
+final_results = pd.concat(all_results)
+final_results.to_csv(os.path.join(output_dir, "FNN_complete_rankings.csv"), index=False)
+print(f"\nAll seasons rankings saved to: {os.path.join(output_dir, 'FNN_complete_rankings.csv')}")
