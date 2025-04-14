@@ -1,0 +1,337 @@
+Season,Team,Actual_Rank,Predicted_Rank
+2003-04,Sacramento Kings,8,1
+2003-04,San Antonio Spurs,3,2
+2003-04,Dallas Mavericks,5,3
+2003-04,New Jersey Nets,4,4
+2003-04,Detroit Pistons,1,5
+2003-04,New Orleans Hornets,10,6
+2003-04,Denver Nuggets,11,7
+2003-04,Indiana Pacers,2,8
+2003-04,Minnesota Timberwolves,9,9
+2003-04,New York Knicks,13,10
+2003-04,Milwaukee Bucks,14,11
+2003-04,Houston Rockets,12,12
+2003-04,Boston Celtics,16,13
+2003-04,Los Angeles Lakers,6,14
+2003-04,Memphis Grizzlies,15,15
+2003-04,Miami Heat,7,16
+2004-05,Phoenix Suns,4,1
+2004-05,Houston Rockets,10,2
+2004-05,Chicago Bulls,7,3
+2004-05,Boston Celtics,5,4
+2004-05,Detroit Pistons,1,5
+2004-05,San Antonio Spurs,2,6
+2004-05,Philadelphia 76ers,13,7
+2004-05,Miami Heat,3,8
+2004-05,Washington Wizards,9,9
+2004-05,Dallas Mavericks,6,10
+2004-05,Denver Nuggets,14,11
+2004-05,Seattle Supersonics,8,12
+2004-05,Sacramento Kings,12,13
+2004-05,Memphis Grizzlies,15,14
+2004-05,New Jersey Nets,16,15
+2004-05,Indiana Pacers,11,16
+2005-06,Detroit Pistons,4,1
+2005-06,Memphis Grizzlies,16,2
+2005-06,Phoenix Suns,6,3
+2005-06,San Antonio Spurs,5,4
+2005-06,Washington Wizards,7,5
+2005-06,New Jersey Nets,8,6
+2005-06,Los Angeles Lakers,12,7
+2005-06,Dallas Mavericks,1,8
+2005-06,Chicago Bulls,9,9
+2005-06,Cleveland Cavaliers,10,10
+2005-06,Miami Heat,2,11
+2005-06,Los Angeles Clippers,3,12
+2005-06,Sacramento Kings,14,13
+2005-06,Milwaukee Bucks,15,14
+2005-06,Indiana Pacers,11,15
+2005-06,Denver Nuggets,13,16
+2006-07,Phoenix Suns,1,1
+2006-07,Golden State Warriors,6,2
+2006-07,Denver Nuggets,11,3
+2006-07,Toronto Raptors,10,4
+2006-07,Dallas Mavericks,12,5
+2006-07,San Antonio Spurs,2,6
+2006-07,Washington Wizards,13,7
+2006-07,Detroit Pistons,3,8
+2006-07,Houston Rockets,9,9
+2006-07,Los Angeles Lakers,15,10
+2006-07,Utah Jazz,8,11
+2006-07,New Jersey Nets,5,12
+2006-07,Orlando Magic,14,13
+2006-07,Miami Heat,16,14
+2006-07,Chicago Bulls,7,15
+2006-07,Cleveland Cavaliers,4,16
+2007-08,Phoenix Suns,9,1
+2007-08,Toronto Raptors,12,2
+2007-08,Los Angeles Lakers,5,3
+2007-08,Orlando Magic,6,4
+2007-08,New Orleans Hornets,2,5
+2007-08,Denver Nuggets,15,6
+2007-08,Utah Jazz,7,7
+2007-08,Washington Wizards,11,8
+2007-08,Atlanta Hawks,16,9
+2007-08,Boston Celtics,1,10
+2007-08,Philadelphia 76ers,13,11
+2007-08,Houston Rockets,10,12
+2007-08,San Antonio Spurs,8,13
+2007-08,Detroit Pistons,3,14
+2007-08,Cleveland Cavaliers,4,15
+2007-08,Dallas Mavericks,14,16
+2008-09,Los Angeles Lakers,3,1
+2008-09,Dallas Mavericks,7,2
+2008-09,Denver Nuggets,2,3
+2008-09,Chicago Bulls,9,4
+2008-09,Philadelphia 76ers,13,5
+2008-09,Houston Rockets,8,6
+2008-09,Portland Trail Blazers,10,7
+2008-09,Detroit Pistons,15,8
+2008-09,Utah Jazz,14,9
+2008-09,Boston Celtics,6,10
+2008-09,San Antonio Spurs,11,11
+2008-09,Cleveland Cavaliers,1,12
+2008-09,Orlando Magic,4,13
+2008-09,Miami Heat,5,14
+2008-09,Atlanta Hawks,12,15
+2008-09,New Orleans Hornets,16,16
+2009-10,Utah Jazz,9,1
+2009-10,Phoenix Suns,2,2
+2009-10,San Antonio Spurs,10,3
+2009-10,Milwaukee Bucks,11,4
+2009-10,Atlanta Hawks,12,5
+2009-10,Denver Nuggets,7,6
+2009-10,Orlando Magic,1,7
+2009-10,Miami Heat,13,8
+2009-10,Boston Celtics,4,9
+2009-10,Los Angeles Lakers,3,10
+2009-10,Portland Trail Blazers,16,11
+2009-10,Chicago Bulls,14,12
+2009-10,Oklahoma City Thunder,8,13
+2009-10,Dallas Mavericks,6,14
+2009-10,Cleveland Cavaliers,5,15
+2009-10,Charlotte Bobcats,15,16
+2010-11,New Orleans Hornets,14,1
+2010-11,New York Knicks,16,2
+2010-11,Oklahoma City Thunder,5,3
+2010-11,San Antonio Spurs,9,4
+2010-11,Dallas Mavericks,1,5
+2010-11,Philadelphia 76ers,15,6
+2010-11,Los Angeles Lakers,8,7
+2010-11,Atlanta Hawks,10,8
+2010-11,Memphis Grizzlies,7,9
+2010-11,Indiana Pacers,13,10
+2010-11,Miami Heat,3,11
+2010-11,Chicago Bulls,2,12
+2010-11,Orlando Magic,4,13
+2010-11,Denver Nuggets,11,14
+2010-11,Boston Celtics,6,15
+2010-11,Portland Trail Blazers,12,16
+2011-12,Orlando Magic,14,1
+2011-12,Philadelphia 76ers,8,2
+2011-12,Los Angeles Clippers,11,3
+2011-12,Atlanta Hawks,12,4
+2011-12,Utah Jazz,16,5
+2011-12,Indiana Pacers,4,6
+2011-12,Oklahoma City Thunder,3,7
+2011-12,Boston Celtics,5,8
+2011-12,Memphis Grizzlies,6,9
+2011-12,Dallas Mavericks,13,10
+2011-12,Miami Heat,1,11
+2011-12,New York Knicks,15,12
+2011-12,Denver Nuggets,7,13
+2011-12,Chicago Bulls,9,14
+2011-12,Los Angeles Lakers,10,15
+2011-12,San Antonio Spurs,2,16
+2012-13,Miami Heat,2,1
+2012-13,San Antonio Spurs,1,2
+2012-13,Houston Rockets,12,3
+2012-13,Denver Nuggets,9,4
+2012-13,Los Angeles Clippers,13,5
+2012-13,Boston Celtics,11,6
+2012-13,Atlanta Hawks,10,7
+2012-13,Oklahoma City Thunder,5,8
+2012-13,Brooklyn Nets,4,9
+2012-13,Memphis Grizzlies,6,10
+2012-13,Golden State Warriors,7,11
+2012-13,Milwaukee Bucks,15,12
+2012-13,Los Angeles Lakers,16,13
+2012-13,Indiana Pacers,8,14
+2012-13,Chicago Bulls,14,15
+2012-13,New York Knicks,3,16
+2013-14,Chicago Bulls,13,1
+2013-14,Atlanta Hawks,6,2
+2013-14,Charlotte Bobcats,16,3
+2013-14,Brooklyn Nets,9,4
+2013-14,Toronto Raptors,10,5
+2013-14,Indiana Pacers,7,6
+2013-14,Miami Heat,3,7
+2013-14,Dallas Mavericks,11,8
+2013-14,Memphis Grizzlies,14,9
+2013-14,Golden State Warriors,12,10
+2013-14,Washington Wizards,4,11
+2013-14,San Antonio Spurs,1,12
+2013-14,Los Angeles Clippers,2,13
+2013-14,Oklahoma City Thunder,8,14
+2013-14,Portland Trail Blazers,15,15
+2013-14,Houston Rockets,5,16
+2014-15,Golden State Warriors,1,1
+2014-15,Chicago Bulls,4,2
+2014-15,Houston Rockets,9,3
+2014-15,San Antonio Spurs,6,4
+2014-15,New Orleans Pelicans,13,5
+2014-15,Portland Trail Blazers,12,6
+2014-15,Atlanta Hawks,7,7
+2014-15,Brooklyn Nets,11,8
+2014-15,Cleveland Cavaliers,2,9
+2014-15,Dallas Mavericks,10,10
+2014-15,Boston Celtics,14,11
+2014-15,Los Angeles Clippers,5,12
+2014-15,Milwaukee Bucks,15,13
+2014-15,Memphis Grizzlies,8,14
+2014-15,Toronto Raptors,16,15
+2014-15,Washington Wizards,3,16
+2015-16,Charlotte Hornets,12,1
+2015-16,Golden State Warriors,4,2
+2015-16,Miami Heat,5,3
+2015-16,Dallas Mavericks,15,4
+2015-16,San Antonio Spurs,1,5
+2015-16,Los Angeles Clippers,7,6
+2015-16,Portland Trail Blazers,9,7
+2015-16,Oklahoma City Thunder,3,8
+2015-16,Atlanta Hawks,8,9
+2015-16,Boston Celtics,11,10
+2015-16,Indiana Pacers,6,11
+2015-16,Detroit Pistons,13,12
+2015-16,Cleveland Cavaliers,2,13
+2015-16,Toronto Raptors,10,14
+2015-16,Houston Rockets,14,15
+2015-16,Memphis Grizzlies,16,16
+2016-17,Memphis Grizzlies,15,1
+2016-17,Toronto Raptors,12,2
+2016-17,Los Angeles Clippers,8,3
+2016-17,San Antonio Spurs,4,4
+2016-17,Oklahoma City Thunder,14,5
+2016-17,Utah Jazz,11,6
+2016-17,Boston Celtics,9,7
+2016-17,Cleveland Cavaliers,2,8
+2016-17,Portland Trail Blazers,16,9
+2016-17,Atlanta Hawks,7,10
+2016-17,Golden State Warriors,1,11
+2016-17,Indiana Pacers,10,12
+2016-17,Chicago Bulls,13,13
+2016-17,Houston Rockets,3,14
+2016-17,Milwaukee Bucks,6,15
+2016-17,Washington Wizards,5,16
+2017-18,Houston Rockets,4,1
+2017-18,Portland Trail Blazers,13,2
+2017-18,Cleveland Cavaliers,8,3
+2017-18,Boston Celtics,5,4
+2017-18,Indiana Pacers,2,5
+2017-18,Miami Heat,16,6
+2017-18,Milwaukee Bucks,6,7
+2017-18,Golden State Warriors,1,8
+2017-18,Minnesota Timberwolves,14,9
+2017-18,New Orleans Pelicans,7,10
+2017-18,Oklahoma City Thunder,11,11
+2017-18,Philadelphia 76ers,3,12
+2017-18,San Antonio Spurs,15,13
+2017-18,Toronto Raptors,12,14
+2017-18,Utah Jazz,10,15
+2017-18,Washington Wizards,9,16
+2018-19,Boston Celtics,7,1
+2018-19,Brooklyn Nets,14,2
+2018-19,Denver Nuggets,6,3
+2018-19,Detroit Pistons,16,4
+2018-19,Golden State Warriors,3,5
+2018-19,Houston Rockets,4,6
+2018-19,Indiana Pacers,11,7
+2018-19,Los Angeles Clippers,13,8
+2018-19,Milwaukee Bucks,1,9
+2018-19,Oklahoma City Thunder,10,10
+2018-19,Orlando Magic,15,11
+2018-19,Philadelphia 76ers,5,12
+2018-19,Portland Trail Blazers,8,13
+2018-19,San Antonio Spurs,9,14
+2018-19,Toronto Raptors,2,15
+2018-19,Utah Jazz,12,16
+2019-20,Boston Celtics,2,1
+2019-20,Brooklyn Nets,16,2
+2019-20,Dallas Mavericks,12,3
+2019-20,Denver Nuggets,9,4
+2019-20,Houston Rockets,8,5
+2019-20,Indiana Pacers,14,6
+2019-20,Los Angeles Clippers,3,7
+2019-20,Los Angeles Lakers,1,8
+2019-20,Miami Heat,6,9
+2019-20,Milwaukee Bucks,7,10
+2019-20,Oklahoma City Thunder,10,11
+2019-20,Orlando Magic,11,12
+2019-20,Philadelphia 76ers,15,13
+2019-20,Portland Trail Blazers,13,14
+2019-20,Toronto Raptors,4,15
+2019-20,Utah Jazz,5,16
+2020-21,Atlanta Hawks,8,1
+2020-21,Boston Celtics,14,2
+2020-21,Brooklyn Nets,2,3
+2020-21,Dallas Mavericks,9,4
+2020-21,Denver Nuggets,10,5
+2020-21,Los Angeles Clippers,5,6
+2020-21,Los Angeles Lakers,11,7
+2020-21,Memphis Grizzlies,13,8
+2020-21,Miami Heat,16,9
+2020-21,Milwaukee Bucks,3,10
+2020-21,New York Knicks,12,11
+2020-21,Philadelphia 76ers,1,12
+2020-21,Phoenix Suns,4,13
+2020-21,Portland Trail Blazers,7,14
+2020-21,Utah Jazz,6,15
+2020-21,Washington Wizards,15,16
+2021-22,Atlanta Hawks,15,1
+2021-22,Boston Celtics,3,2
+2021-22,Brooklyn Nets,10,3
+2021-22,Chicago Bulls,16,4
+2021-22,Dallas Mavericks,6,5
+2021-22,Denver Nuggets,13,6
+2021-22,Golden State Warriors,1,7
+2021-22,Memphis Grizzlies,4,8
+2021-22,Miami Heat,2,9
+2021-22,Milwaukee Bucks,5,10
+2021-22,Minnesota Timberwolves,11,11
+2021-22,New Orleans Pelicans,9,12
+2021-22,Philadelphia 76ers,7,13
+2021-22,Phoenix Suns,8,14
+2021-22,Toronto Raptors,14,15
+2021-22,Utah Jazz,12,16
+2022-23,Atlanta Hawks,11,1
+2022-23,Boston Celtics,2,2
+2022-23,Brooklyn Nets,16,3
+2022-23,Cleveland Cavaliers,12,4
+2022-23,Denver Nuggets,1,5
+2022-23,Golden State Warriors,6,6
+2022-23,Los Angeles Clippers,13,7
+2022-23,Los Angeles Lakers,3,8
+2022-23,Memphis Grizzlies,14,9
+2022-23,Miami Heat,4,10
+2022-23,Milwaukee Bucks,10,11
+2022-23,Minnesota Timberwolves,15,12
+2022-23,New York Knicks,5,13
+2022-23,Philadelphia 76ers,7,14
+2022-23,Phoenix Suns,9,15
+2022-23,Sacramento Kings,8,16
+2023-24,Boston Celtics,1,1
+2023-24,Cleveland Cavaliers,12,2
+2023-24,Dallas Mavericks,5,3
+2023-24,Denver Nuggets,8,4
+2023-24,Indiana Pacers,6,5
+2023-24,Los Angeles Clippers,13,6
+2023-24,Los Angeles Lakers,10,7
+2023-24,Miami Heat,16,8
+2023-24,Milwaukee Bucks,11,9
+2023-24,Minnesota Timberwolves,4,10
+2023-24,New Orleans Pelicans,15,11
+2023-24,New York Knicks,9,12
+2023-24,Oklahoma City Thunder,2,13
+2023-24,Orlando Magic,3,14
+2023-24,Philadelphia 76ers,7,15
+2023-24,Phoenix Suns,14,16
