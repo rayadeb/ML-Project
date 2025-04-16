@@ -9,12 +9,12 @@ df['Actual_Rank'] = pd.to_numeric(df['Actual_Rank'])
 df['Predicted_Rank'] = pd.to_numeric(df['Predicted_Rank'])
 
 # Best and worst seasons by MAE from external results
-best_seasons = ['2023-24']
+seasons = ['2023-24']
 
-selected_seasons = best_seasons
+seasons = seasons
 
 # Plot for each season
-for season in selected_seasons:
+for season in seasons:
     season_df = df[df['Season'].str.contains(season)]
 
     if season_df.empty:
