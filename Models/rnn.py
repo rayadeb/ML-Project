@@ -18,7 +18,7 @@ PATH = os.path.join(Path(__file__).parent.parent, "Preprocessing", "Preprocessed
 feature_cols = ["MP", "FG%", "3P%", "eFG%", "FT%", "AST", "STL", "BLK", "TOV", "PF", "PTS"]
 input_size = len(feature_cols)
 hidden_size = 64
-num_epochs = 200
+num_epochs = 50
 batch_size = 16
 learning_rate = 0.001
 TEAM_NAME_MAP = {
@@ -238,6 +238,6 @@ results_df["Actual_Rank"] = results_df["Actual_Rank"].astype(int)
 results_df = results_df.sort_values(by=["Season", "Predicted_Rank"])
 
 # Save to CSV
-output_path = os.path.join(Path(__file__).parent.parent, "Results/RNN/RNN_complete_rankings.csv")
+output_path = os.path.join(Path(__file__).parent.parent, "Results/Test/RNN_complete_rankings.csv")
 results_df[['Season', 'Team', 'Actual_Rank', 'Predicted_Rank']].to_csv(output_path, index=False)
 print(f"Results saved to {output_path}")
