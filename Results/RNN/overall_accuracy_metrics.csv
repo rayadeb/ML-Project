@@ -1,6 +1,6 @@
 Metric,Value
-Spearman_Correlation,0.9903361344537813
-Kendall_Tau,0.9749055177626605
-MAE,0.15476190476190477
-Perfect_Matches,297.0
+Spearman_Correlation,0.1752100840336134
+Kendall_Tau,0.12464096749811034
+MAE,4.761904761904762
+Perfect_Matches,23.0
 Total_Teams,336.0
