@@ -1,0 +1,318 @@
+Season,Predicted_Rank,Team,Actual_Rank,Raw_Prediction,Original_Index
+2003-04,1,Indiana Pacers,2,0.37461758,127
+2003-04,2,Los Angeles Lakers,5,0.62141633,152
+2003-04,3,Dallas Mavericks,4,0.7777606,64
+2003-04,4,Sacramento Kings,7,2.0338087,267
+2003-04,5,Miami Heat,6,2.5538259,178
+2003-04,6,Minnesota Timberwolves,8,4.0944443,208
+2003-04,7,Houston Rockets,10,5.637871,114
+2003-04,8,Denver Nuggets,9,5.676743,80
+2003-04,9,Milwaukee Bucks,12,6.1823196,195
+2003-04,10,San Antonio Spurs,3,7.005997,271
+2003-04,11,New York Knicks,11,8.06897,217
+2003-04,12,Detroit Pistons,1,9.424158,96
+2003-04,13,Memphis Grizzlies,13,9.5383,165
+2003-04,14,Boston Celtics,14,9.639311,13
+2004-05,1,San Antonio Spurs,2,-0.046181202,272
+2004-05,2,Detroit Pistons,1,0.048763677,97
+2004-05,3,Miami Heat,3,0.25037816,179
+2004-05,4,Boston Celtics,4,1.9596956,14
+2004-05,5,Dallas Mavericks,5,2.2384257,65
+2004-05,6,Chicago Bulls,6,2.2965388,41
+2004-05,7,Houston Rockets,8,3.124386,115
+2004-05,8,Denver Nuggets,12,3.1369014,81
+2004-05,9,Washington Wizards,7,3.452856,308
+2004-05,10,Sacramento Kings,10,5.680072,268
+2004-05,11,Indiana Pacers,9,5.8564024,128
+2004-05,12,Memphis Grizzlies,13,6.216575,166
+2004-05,13,Philadelphia 76ers,11,6.7684097,244
+2005-06,1,Dallas Mavericks,1,0.3263511,66
+2005-06,2,Miami Heat,2,0.33032966,180
+2005-06,3,Los Angeles Clippers,3,0.46711436,140
+2005-06,4,Detroit Pistons,4,1.2289776,98
+2005-06,5,San Antonio Spurs,5,1.4602617,273
+2005-06,6,Denver Nuggets,11,2.642754,82
+2005-06,7,Washington Wizards,6,4.241735,309
+2005-06,8,Indiana Pacers,9,4.4878836,129
+2005-06,9,Chicago Bulls,7,4.705553,42
+2005-06,10,Sacramento Kings,12,4.7862206,269
+2005-06,11,Cleveland Cavaliers,8,6.330536,53
+2005-06,12,Los Angeles Lakers,10,7.2130117,153
+2005-06,13,Milwaukee Bucks,13,9.708176,196
+2005-06,14,Memphis Grizzlies,14,11.186048,167
+2006-07,1,Cleveland Cavaliers,3,0.4888466,54
+2006-07,2,Detroit Pistons,2,0.5091515,99
+2006-07,3,San Antonio Spurs,1,0.59678125,274
+2006-07,4,Golden State Warriors,4,2.0290465,104
+2006-07,5,Toronto Raptors,8,2.0776682,287
+2006-07,6,Chicago Bulls,5,2.3041592,43
+2006-07,7,Utah Jazz,6,2.7778811,297
+2006-07,8,Washington Wizards,11,3.1100273,310
+2006-07,9,Denver Nuggets,9,3.4895287,83
+2006-07,10,Houston Rockets,7,3.883,116
+2006-07,11,Dallas Mavericks,10,4.4789405,67
+2006-07,12,Los Angeles Lakers,13,7.3587694,154
+2006-07,13,Orlando Magic,12,7.5485034,235
+2006-07,14,Miami Heat,14,7.614196,181
+2007-08,1,Boston Celtics,1,0.056619957,15
+2007-08,2,Detroit Pistons,2,0.54741776,100
+2007-08,3,Cleveland Cavaliers,3,0.6531341,55
+2007-08,4,Dallas Mavericks,12,0.6578441,68
+2007-08,5,Los Angeles Lakers,4,1.0899715,155
+2007-08,6,Orlando Magic,5,2.2439787,236
+2007-08,7,Toronto Raptors,10,2.529241,288
+2007-08,8,San Antonio Spurs,7,2.80076,275
+2007-08,9,Utah Jazz,6,2.8177555,298
+2007-08,10,Washington Wizards,9,3.7408373,311
+2007-08,11,Houston Rockets,8,5.375093,117
+2007-08,12,Denver Nuggets,13,6.945998,84
+2007-08,13,Philadelphia 76ers,11,8.660786,245
+2007-08,14,Atlanta Hawks,14,9.601909,0
+2008-09,1,Los Angeles Lakers,3,0.32803044,156
+2008-09,2,Cleveland Cavaliers,1,0.33414719,56
+2008-09,3,Denver Nuggets,2,0.44197828,85
+2008-09,4,Orlando Magic,4,0.5995315,237
+2008-09,5,Miami Heat,5,1.051784,182
+2008-09,6,Boston Celtics,6,2.2081146,16
+2008-09,7,Dallas Mavericks,7,2.4839694,69
+2008-09,8,Houston Rockets,8,2.5051365,118
+2008-09,9,Atlanta Hawks,12,2.5857742,1
+2008-09,10,Portland Trail Blazers,10,3.6177132,256
+2008-09,11,Chicago Bulls,9,4.5482044,44
+2008-09,12,San Antonio Spurs,11,6.724534,276
+2008-09,13,Philadelphia 76ers,13,9.117676,246
+2008-09,14,Detroit Pistons,15,9.812788,101
+2008-09,15,Utah Jazz,14,10.332413,299
+2009-10,1,Orlando Magic,1,0.45377564,238
+2009-10,2,Boston Celtics,3,1.1949391,17
+2009-10,3,Dallas Mavericks,5,1.2048972,70
+2009-10,4,Cleveland Cavaliers,4,1.2406309,57
+2009-10,5,Denver Nuggets,6,1.9579026,86
+2009-10,6,Utah Jazz,8,2.69558,300
+2009-10,7,San Antonio Spurs,9,3.585023,277
+2009-10,8,Los Angeles Lakers,2,3.8324223,157
+2009-10,9,Oklahoma City Thunder,7,4.223908,224
+2009-10,10,Atlanta Hawks,11,6.2395053,2
+2009-10,11,Miami Heat,12,7.0275764,183
+2009-10,12,Charlotte Hornets,14,7.59028,39
+2009-10,13,Milwaukee Bucks,10,8.679107,197
+2009-10,14,Portland Trail Blazers,15,9.437886,257
+2009-10,15,Chicago Bulls,13,10.042612,45
+2010-11,1,Chicago Bulls,2,0.3771391,46
+2010-11,2,Miami Heat,3,0.50543886,184
+2010-11,3,Dallas Mavericks,1,0.5115095,71
+2010-11,4,Orlando Magic,4,1.2310526,239
+2010-11,5,Oklahoma City Thunder,5,1.242739,225
+2010-11,6,New York Knicks,15,1.7213627,218
+2010-11,7,Boston Celtics,6,2.1613371,18
+2010-11,8,San Antonio Spurs,9,2.4110525,278
+2010-11,9,Los Angeles Lakers,8,3.435649,158
+2010-11,10,Atlanta Hawks,10,4.253826,3
+2010-11,11,Memphis Grizzlies,7,5.800999,168
+2010-11,12,Denver Nuggets,11,6.759648,87
+2010-11,13,Portland Trail Blazers,12,6.879757,258
+2010-11,14,Indiana Pacers,13,8.462698,130
+2010-11,15,Philadelphia 76ers,14,9.645377,247
+2011-12,1,San Antonio Spurs,2,0.38406143,279
+2011-12,2,Miami Heat,1,0.5639488,185
+2011-12,3,Indiana Pacers,4,0.64947265,131
+2011-12,4,Boston Celtics,5,0.99575025,19
+2011-12,5,Memphis Grizzlies,6,1.3621147,169
+2011-12,6,Philadelphia 76ers,8,1.4826028,248
+2011-12,7,Chicago Bulls,9,2.3632374,47
+2011-12,8,Denver Nuggets,7,2.479392,88
+2011-12,9,Los Angeles Lakers,10,3.3909967,159
+2011-12,10,Oklahoma City Thunder,3,3.4409046,226
+2011-12,11,Los Angeles Clippers,11,4.717687,141
+2011-12,12,Dallas Mavericks,13,5.144577,72
+2011-12,13,Atlanta Hawks,12,5.6285195,4
+2011-12,14,New York Knicks,15,6.888309,219
+2011-12,15,Orlando Magic,14,7.8876953,240
+2011-12,16,Utah Jazz,16,8.332815,301
+2012-13,1,San Antonio Spurs,1,0.41853285,280
+2012-13,2,Brooklyn Nets,4,0.65453297,31
+2012-13,3,Boston Celtics,11,0.7141312,20
+2012-13,4,Oklahoma City Thunder,5,0.7278616,227
+2012-13,5,Golden State Warriors,7,1.159014,105
+2012-13,6,Miami Heat,2,1.2151704,186
+2012-13,7,Memphis Grizzlies,6,1.2714928,170
+2012-13,8,Indiana Pacers,8,2.3441958,132
+2012-13,9,Atlanta Hawks,10,3.455495,5
+2012-13,10,New York Knicks,3,4.5658193,220
+2012-13,11,Houston Rockets,12,5.7371907,119
+2012-13,12,Chicago Bulls,14,6.3694224,48
+2012-13,13,Los Angeles Clippers,13,6.392287,142
+2012-13,14,Denver Nuggets,9,8.811811,89
+2012-13,15,Los Angeles Lakers,16,10.212587,160
+2012-13,16,Milwaukee Bucks,15,10.588028,198
+2013-14,1,Washington Wizards,4,0.61184263,312
+2013-14,2,Los Angeles Clippers,2,0.6853056,143
+2013-14,3,Oklahoma City Thunder,8,0.7130074,228
+2013-14,4,Miami Heat,3,0.7233271,187
+2013-14,5,Brooklyn Nets,9,1.0135787,32
+2013-14,6,Houston Rockets,5,1.1112169,120
+2013-14,7,Atlanta Hawks,6,1.4625174,6
+2013-14,8,Dallas Mavericks,11,1.8650281,73
+2013-14,9,Indiana Pacers,7,3.254173,133
+2013-14,10,San Antonio Spurs,1,3.6326776,281
+2013-14,11,Toronto Raptors,10,4.7118316,289
+2013-14,12,Golden State Warriors,12,6.2915235,106
+2013-14,13,Chicago Bulls,13,6.504453,49
+2013-14,14,Memphis Grizzlies,14,7.059847,171
+2013-14,15,Charlotte Hornets,16,9.698131,40
+2013-14,16,Portland Trail Blazers,15,10.307078,259
+2014-15,1,Golden State Warriors,1,0.2719474,107
+2014-15,2,Washington Wizards,3,0.589673,313
+2014-15,3,Chicago Bulls,4,0.65358716,50
+2014-15,4,Cleveland Cavaliers,2,1.1998,58
+2014-15,5,Los Angeles Clippers,5,1.4393241,144
+2014-15,6,New Orleans Pelicans,13,1.5556414,213
+2014-15,7,Atlanta Hawks,7,1.8987467,7
+2014-15,8,San Antonio Spurs,6,3.4063408,282
+2014-15,9,Memphis Grizzlies,8,3.4526913,172
+2014-15,10,Boston Celtics,14,3.8381546,21
+2014-15,11,Houston Rockets,9,4.2669115,121
+2014-15,12,Dallas Mavericks,10,4.4074154,74
+2014-15,13,Brooklyn Nets,11,6.560624,33
+2014-15,14,Portland Trail Blazers,12,6.5938654,260
+2014-15,15,Milwaukee Bucks,15,8.922902,199
+2014-15,16,Toronto Raptors,16,10.28874,290
+2015-16,1,San Antonio Spurs,1,0.24884662,283
+2015-16,2,Cleveland Cavaliers,2,0.45871454,59
+2015-16,3,Oklahoma City Thunder,3,0.4943549,229
+2015-16,4,Golden State Warriors,4,0.8764331,108
+2015-16,5,Atlanta Hawks,8,1.0003462,8
+2015-16,6,Miami Heat,5,1.229796,188
+2015-16,7,Los Angeles Clippers,7,2.3515463,145
+2015-16,8,Toronto Raptors,10,3.9033577,291
+2015-16,9,Portland Trail Blazers,9,4.5334697,261
+2015-16,10,Indiana Pacers,6,6.3252645,134
+2015-16,11,Boston Celtics,11,6.4838805,22
+2015-16,12,Detroit Pistons,12,7.839872,102
+2015-16,13,Houston Rockets,13,8.531883,122
+2015-16,14,Memphis Grizzlies,15,9.27993,173
+2015-16,15,Dallas Mavericks,14,9.45475,75
+2016-17,1,Cleveland Cavaliers,2,0.5718967,60
+2016-17,2,Houston Rockets,3,0.7153936,123
+2016-17,3,Washington Wizards,5,1.0881252,314
+2016-17,4,San Antonio Spurs,4,1.1187289,284
+2016-17,5,Golden State Warriors,1,1.9339364,109
+2016-17,6,Atlanta Hawks,7,2.204192,9
+2016-17,7,Milwaukee Bucks,6,2.3550863,200
+2016-17,8,Toronto Raptors,12,2.4219444,292
+2016-17,9,Boston Celtics,9,2.8242013,23
+2016-17,10,Portland Trail Blazers,16,3.0583038,262
+2016-17,11,Los Angeles Clippers,8,3.062126,146
+2016-17,12,Utah Jazz,11,4.3641644,302
+2016-17,13,Indiana Pacers,10,4.946778,135
+2016-17,14,Chicago Bulls,13,7.1249604,51
+2016-17,15,Oklahoma City Thunder,14,8.553615,230
+2016-17,16,Memphis Grizzlies,15,10.317506,174
+2017-18,1,Golden State Warriors,1,0.4724204,110
+2017-18,2,Philadelphia 76ers,3,0.6398379,249
+2017-18,3,Houston Rockets,4,1.0333613,124
+2017-18,4,Milwaukee Bucks,6,1.4476668,201
+2017-18,5,Boston Celtics,5,2.5441453,24
+2017-18,6,New Orleans Pelicans,7,2.6207724,214
+2017-18,7,Washington Wizards,9,3.8130844,315
+2017-18,8,Portland Trail Blazers,13,4.5403433,263
+2017-18,9,Utah Jazz,10,5.6422224,303
+2017-18,10,Oklahoma City Thunder,11,6.0794764,231
+2017-18,11,Cleveland Cavaliers,8,6.094328,61
+2017-18,12,San Antonio Spurs,15,8.703126,285
+2017-18,13,Minnesota Timberwolves,14,9.144993,209
+2017-18,14,Indiana Pacers,2,9.610549,136
+2017-18,15,Miami Heat,16,10.011514,189
+2017-18,16,Toronto Raptors,12,10.310817,293
+2018-19,1,Toronto Raptors,2,0.25730333,294
+2018-19,2,Milwaukee Bucks,1,0.26702014,202
+2018-19,3,Houston Rockets,4,0.32277822,125
+2018-19,4,Philadelphia 76ers,5,0.5624777,250
+2018-19,5,Golden State Warriors,3,1.002375,111
+2018-19,6,Boston Celtics,7,1.6536422,25
+2018-19,7,Denver Nuggets,6,2.4961283,90
+2018-19,8,Brooklyn Nets,14,2.8426065,34
+2018-19,9,Portland Trail Blazers,8,3.1438432,264
+2018-19,10,Oklahoma City Thunder,10,4.497092,232
+2018-19,11,San Antonio Spurs,9,5.5178256,286
+2018-19,12,Utah Jazz,12,5.6365633,304
+2018-19,13,Indiana Pacers,11,6.0208015,137
+2018-19,14,Los Angeles Clippers,13,7.6449347,147
+2018-19,15,Orlando Magic,15,8.76883,241
+2018-19,16,Detroit Pistons,16,10.145777,103
+2019-20,1,Los Angeles Lakers,1,0.4051806,161
+2019-20,2,Boston Celtics,2,0.55081636,26
+2019-20,3,Los Angeles Clippers,3,0.6126415,148
+2019-20,4,Toronto Raptors,4,0.77427626,295
+2019-20,5,Houston Rockets,8,0.81028366,126
+2019-20,6,Utah Jazz,5,1.6361243,305
+2019-20,7,Milwaukee Bucks,7,2.1673973,203
+2019-20,8,Miami Heat,6,2.6398315,190
+2019-20,9,Denver Nuggets,9,2.870828,91
+2019-20,10,Oklahoma City Thunder,10,5.337867,233
+2019-20,11,Dallas Mavericks,12,6.7149653,76
+2019-20,12,Portland Trail Blazers,13,8.052768,265
+2019-20,13,Indiana Pacers,14,9.528817,138
+2019-20,14,Brooklyn Nets,16,9.755276,35
+2019-20,15,Philadelphia 76ers,15,9.962192,251
+2019-20,16,Orlando Magic,11,15.706781,242
+2020-21,1,Brooklyn Nets,2,0.5211332,36
+2020-21,2,Philadelphia 76ers,1,0.6010723,252
+2020-21,3,Los Angeles Clippers,4,0.9554772,149
+2020-21,4,Utah Jazz,5,1.2317346,306
+2020-21,5,Milwaukee Bucks,3,1.8320212,204
+2020-21,6,Atlanta Hawks,7,2.438102,10
+2020-21,7,Portland Trail Blazers,6,2.4596455,266
+2020-21,8,Memphis Grizzlies,12,2.604984,175
+2020-21,9,Dallas Mavericks,8,3.8872807,77
+2020-21,10,Los Angeles Lakers,10,4.332864,162
+2020-21,11,Denver Nuggets,9,5.6305995,92
+2020-21,12,New York Knicks,11,6.143897,221
+2020-21,13,Boston Celtics,13,7.289521,27
+2020-21,14,Washington Wizards,14,10.35668,316
+2020-21,15,Miami Heat,15,11.43266,191
+2021-22,1,Golden State Warriors,1,0.25310045,112
+2021-22,2,Boston Celtics,3,0.4073467,28
+2021-22,3,Miami Heat,2,0.51230764,192
+2021-22,4,Milwaukee Bucks,5,0.94243866,205
+2021-22,5,Philadelphia 76ers,7,2.0113049,253
+2021-22,6,Dallas Mavericks,6,2.2390332,78
+2021-22,7,Atlanta Hawks,14,3.3442516,11
+2021-22,8,Denver Nuggets,12,4.9359655,93
+2021-22,9,Brooklyn Nets,9,5.5329323,37
+2021-22,10,Memphis Grizzlies,4,5.7010937,176
+2021-22,11,Minnesota Timberwolves,10,6.065976,210
+2021-22,12,New Orleans Pelicans,8,6.714085,215
+2021-22,13,Utah Jazz,11,7.780131,307
+2021-22,14,Toronto Raptors,13,8.408024,296
+2021-22,15,Chicago Bulls,15,10.398649,52
+2022-23,1,Denver Nuggets,1,0.32245436,94
+2022-23,2,Boston Celtics,2,0.55074936,29
+2022-23,3,Golden State Warriors,6,0.78648204,113
+2022-23,4,New York Knicks,5,1.0645267,222
+2022-23,5,Los Angeles Lakers,3,2.1089368,163
+2022-23,6,Philadelphia 76ers,7,2.1536748,254
+2022-23,7,Atlanta Hawks,10,2.60227,12
+2022-23,8,Sacramento Kings,8,2.680643,270
+2022-23,9,Milwaukee Bucks,9,5.131062,206
+2022-23,10,Cleveland Cavaliers,11,5.9946704,62
+2022-23,11,Los Angeles Clippers,12,7.5058913,150
+2022-23,12,Memphis Grizzlies,13,7.665453,177
+2022-23,13,Minnesota Timberwolves,14,9.485254,211
+2022-23,14,Miami Heat,4,10.544721,193
+2022-23,15,Brooklyn Nets,15,10.61754,38
+2023-24,1,Oklahoma City Thunder,2,0.5331045,234
+2023-24,2,Orlando Magic,3,0.8433474,243
+2023-24,3,Boston Celtics,1,1.2224405,30
+2023-24,4,Indiana Pacers,6,1.8719089,139
+2023-24,5,Dallas Mavericks,5,2.0148277,79
+2023-24,6,Minnesota Timberwolves,4,2.340362,212
+2023-24,7,Denver Nuggets,8,2.6321254,95
+2023-24,8,Philadelphia 76ers,7,2.723198,255
+2023-24,9,New York Knicks,9,4.3842897,223
+2023-24,10,Los Angeles Lakers,10,5.0951395,164
+2023-24,11,Milwaukee Bucks,11,6.2756376,207
+2023-24,12,Los Angeles Clippers,13,6.914965,151
+2023-24,13,Cleveland Cavaliers,12,7.3285375,63
+2023-24,14,New Orleans Pelicans,14,7.981872,216
+2023-24,15,Miami Heat,15,11.13896,194
